@@ -1,12 +1,22 @@
 
                         //define the two direction logic pins and the speed / PWMA and PWMB pin
-const int PWMA = 3;     // Front Motor (A)
+const int PWMA = 6;     // Motor (A)
 const int AIN1 = 5;
 const int AIN2 = 7;
-                        // Rear  Motor (B)
-const int PWMB = 2;
+                        // Motor (B)
+const int PWMB = 7;
 const int BIN1 = 4;
 const int BIN2 = 6;
+
+                        // Motor (C)
+const int PWMC = 8;
+const int CIN1 = 4;
+const int CIN2 = 6;
+
+                        // Motor (D)
+const int PWMD = 9;
+const int DIN1 = 4;
+const int DIN2 = 6;
 
 const int STBY = 9;
 
