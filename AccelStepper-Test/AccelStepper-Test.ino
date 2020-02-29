@@ -1,4 +1,4 @@
-/*Example sketch to control a stepper motor with DRV8825 stepper motor driver, AccelStepper library and Arduino: acceleration and deceleration. More info: https://www.makerguides.com */
+/*Example sketch to control a stepper motor with DRV8825 stepper motor driver, AccelStepper library and Arduino: acceleration and deceleration. */
 
 // Include the AccelStepper library:
 #include <AccelStepper.h>
@@ -22,12 +22,9 @@ void loop() {
   stepper.moveTo(600);
   // Run to target position with set speed and acceleration/deceleration:
   stepper.runToPosition();
-
   delay(1000);
-
   // Move back to zero:
   stepper.moveTo(0);
   stepper.runToPosition();
-
   delay(1000);
 }
