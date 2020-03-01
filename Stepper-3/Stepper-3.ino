@@ -13,16 +13,16 @@ AccelStepper stepper3(AccelStepper::DRIVER, 10, 11);
 
 void setup() {
   // put your setup code here, to run once:
-    stepper1.setMaxSpeed(300.0);
-    stepper1.setAcceleration(100.0);
+    stepper1.setMaxSpeed(1200.0);
+    stepper1.setAcceleration(300.0);
     stepper1.moveTo(1000000);
     
-    stepper2.setMaxSpeed(300.0);
-    stepper2.setAcceleration(100.0);
+    stepper2.setMaxSpeed(1200.0);
+    stepper2.setAcceleration(300.0);
     stepper2.moveTo(1000000);
     
-    stepper3.setMaxSpeed(300.0);
-    stepper3.setAcceleration(100.0);
+    stepper3.setMaxSpeed(1200.0);
+    stepper3.setAcceleration(300.0);
     stepper3.moveTo(1000000); 
 }
 
