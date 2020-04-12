@@ -9,6 +9,8 @@ AccelStepper stepper2(AccelStepper::DRIVER, 8, 9);
 AccelStepper stepper3(AccelStepper::DRIVER, 10, 11);
 
 float MaxSpeed = 1200.0;
+float Acceleration = 300.0;
+float Distance = 10000;
 
 // Unit : Step or Step per second
 // If one step is 1.8 degree, one round is 360/1.8 = 200 step. 
@@ -16,16 +18,18 @@ float MaxSpeed = 1200.0;
 void setup() {
   // put your setup code here, to run once:
     stepper1.setMaxSpeed(MaxSpeed);
-    stepper1.setAcceleration(300.0);
-    stepper1.moveTo(1000000);
-    
+    stepper1.setAcceleration(Acceleration);
+//    stepper1.moveTo(Distance);
+
     stepper2.setMaxSpeed(MaxSpeed);
-    stepper2.setAcceleration(300.0);
-    stepper2.moveTo(1000000);
+    stepper2.setAcceleration(Acceleration);
+    stepper2.moveTo(-Distance);
     
     stepper3.setMaxSpeed(MaxSpeed);
-    stepper3.setAcceleration(300.0);
-    stepper3.moveTo(1000000); 
+    stepper3.setAcceleration(Acceleration);
+    stepper3.moveTo(Distance); 
+
+    delay(5000);
 }
 
 void loop() {
