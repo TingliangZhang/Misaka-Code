@@ -9,30 +9,71 @@
 // If one step is 1.8 degree, one round is 360/1.8 = 200 step. 
 
 
-
 // Define stepper motor connections and steps per revolution:
-#define dirPin 7
-#define stepPin 6
+
+#define stepPin1 6
+#define dirPin1 7
+#define stepPin2 8
+#define dirPin2 9
+#define stepPin3 10
+#define dirPin3 11
+
 #define stepsPerRevolution 200
+
+float speedabs = 0
+float MicrosecondsDelay = 0
+float speedabs = 0
+
+float SetSpeed(int dirPin, int stepPin, float stepperspeed)
+{
+  if (stepperspeed >= 0)
+  {
+    // Set the spinning direction clockwise:
+    digitalWrite(dirPin, HIGH);
+    speedabs = stepperspeed;
+  }
+  else
+  {
+    // Set the spinning direction clockwise:
+    digitalWrite(dirPin, LOW);
+    speedabs = - stepperspeed;   
+  }
+  return speedabs;
+}
+
+
+void Run()
+{
+  //Spin the stepper motor 5 revolutions fast:
+  for (int i = 0; i < 5 * stepsPerRevolution; i++) 
+  {
+    // These four lines result in 1 step:
+    digitalWrite(stepPin1, HIGH);
+    digitalWrite(stepPin2, HIGH);
+    digitalWrite(stepPin3, HIGH);
+    delayMicroseconds(500);
+    digitalWrite(stepPin1, LOW);
+    digitalWrite(stepPin2, LOW);
+    digitalWrite(stepPin3, LOW);
+    delayMicroseconds(500);
+  }
+}
+
 
 void setup() {
   // Declare pins as output:
-  pinMode(stepPin, OUTPUT);
-  pinMode(dirPin, OUTPUT);
+  pinMode(stepPin1, OUTPUT);
+  pinMode(dirPin1, OUTPUT);
+  pinMode(stepPin2, OUTPUT);
+  pinMode(dirPin2, OUTPUT);
+  pinMode(stepPin3, OUTPUT);
+  pinMode(dirPin3, OUTPUT);
 }
 
 void loop() {
-  // Set the spinning direction clockwise:
-  digitalWrite(dirPin, HIGH);
+  SetSpeed(dirPin1, stepPin1, 100);
+  SetSpeed(dirPin2, stepPin2, 100);
+  SetSpeed(dirPin3, stepPin3, 100);
 
-  //Spin the stepper motor 5 revolutions fast:
-  for (int i = 0; i < 5 * stepsPerRevolution; i++) {
-    // These four lines result in 1 step:
-    digitalWrite(stepPin, HIGH);
-    delayMicroseconds(500);
-    digitalWrite(stepPin, LOW);
-    delayMicroseconds(500);
-  }
-
-  delay(1000);
+  Run();
 }
