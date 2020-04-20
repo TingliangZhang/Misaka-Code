@@ -18,6 +18,9 @@
 #define stepPin3 10
 #define dirPin3 11
 
+// Clock Error
+#define TimeScale 16
+
 #define stepsPerRevolution 200
 
 float speedabs = 0;
@@ -50,11 +53,11 @@ void Run()
     digitalWrite(stepPin1, HIGH);
     digitalWrite(stepPin2, HIGH);
     digitalWrite(stepPin3, HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(500/TimeScale);
     digitalWrite(stepPin1, LOW);
     digitalWrite(stepPin2, LOW);
     digitalWrite(stepPin3, LOW);
-    delayMicroseconds(500);
+    delayMicroseconds(500/TimeScale);
   }
 }
 
