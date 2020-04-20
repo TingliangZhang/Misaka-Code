@@ -20,9 +20,8 @@
 
 #define stepsPerRevolution 200
 
-float speedabs = 0
-float MicrosecondsDelay = 0
-float speedabs = 0
+float speedabs = 0;
+float MicrosecondsDelay = 0;
 
 float SetSpeed(int dirPin, int stepPin, float stepperspeed)
 {
