@@ -24,6 +24,7 @@
 #define stepsPerRevolution 200
 
 float speedabs = 0;
+float stepsabs = 0;
 float MicrosecondsDelay = 0;
 
 float SetSpeed(int dirPin, int stepPin, float stepperspeed)
@@ -43,6 +44,54 @@ float SetSpeed(int dirPin, int stepPin, float stepperspeed)
   return speedabs;
 }
 
+float Speedabs(int dirPin, int stepPin, float stepperspeed)
+{
+  if (stepperspeed >= 0)
+  {
+    // Set the spinning direction clockwise:
+    digitalWrite(dirPin, HIGH);
+    speedabs = stepperspeed;
+  }
+  else
+  {
+    // Set the spinning direction clockwise:
+    digitalWrite(dirPin, LOW);
+    speedabs = - stepperspeed;   
+  }
+  return speedabs;
+}
+
+void Forward(int steps)
+{
+  if (steps >= 0)
+  {
+    // Set the spinning direction clockwise:
+    digitalWrite(dirPin1, HIGH);
+    digitalWrite(dirPin2, LOW);
+    stepsabs = steps;
+  }
+  else
+  {
+    // Set the spinning direction clockwise:
+    digitalWrite(dirPin1, LOW);
+    digitalWrite(dirPin2, HIGH);
+    stepsabs = - steps;   
+  }
+  //Spin the stepper motor steps revolutions fast:
+  for (int i = 0; i < steps * stepsPerRevolution; i++) 
+  {
+    // These four lines result in 1 step:
+    digitalWrite(stepPin1, HIGH);
+    digitalWrite(stepPin2, HIGH);
+//    digitalWrite(stepPin3, HIGH);
+    delayMicroseconds(500/TimeScale);
+    digitalWrite(stepPin1, LOW);
+    digitalWrite(stepPin2, LOW);
+//    digitalWrite(stepPin3, LOW);
+    delayMicroseconds(500/TimeScale);
+  }
+  
+}
 
 void Run()
 {
@@ -73,9 +122,10 @@ void setup() {
 }
 
 void loop() {
-  SetSpeed(dirPin1, stepPin1, 100);
-  SetSpeed(dirPin2, stepPin2, 100);
-  SetSpeed(dirPin3, stepPin3, 100);
-
-  Run();
+//  SetSpeed(dirPin1, stepPin1, 100);
+//  SetSpeed(dirPin2, stepPin2, 100);
+//  SetSpeed(dirPin3, stepPin3, 100);
+//
+//  Run();
+Forward(5);
 }
