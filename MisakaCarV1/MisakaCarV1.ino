@@ -119,6 +119,7 @@ void setup() {
   pinMode(dirPin2, OUTPUT);
   pinMode(stepPin3, OUTPUT);
   pinMode(dirPin3, OUTPUT);
+  Forward(5);
 }
 
 void loop() {
@@ -127,5 +128,4 @@ void loop() {
 //  SetSpeed(dirPin3, stepPin3, 100);
 //
 //  Run();
-Forward(5);
 }
