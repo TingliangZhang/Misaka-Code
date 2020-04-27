@@ -232,13 +232,13 @@ void setup() {
 //  xbee.begin(Serial1);
 
   DelayCorrected(5000);
-  ForwardDelay(0);
+  ForwardDelay(30);
   ForwardDelay(15);
-  ForwardDelay(15);
+  ForwardDelay(-8);
+  ForwardDelay(-8);
   ForwardDelay(0);
-  ForwardDelay(0);
-  ForwardDelay(0);
-  ForwardDelay(11);
+  ForwardDelay(10);
+  ForwardDelay(1);
   
 //  ForwardUnits(0);
 //  DelayCorrected(3000);
