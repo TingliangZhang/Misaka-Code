@@ -197,6 +197,10 @@ void DelayCorrected(float s){
   delay(s/16);
 }
 
+void ForwardUnits(float u){
+  Forward(u/6);
+}
+
 void setup() {
   pinMode(statusLed, OUTPUT);
   pinMode(errorLed, OUTPUT);
@@ -214,9 +218,9 @@ void setup() {
   Serial1.begin(9600);
   xbee.begin(Serial1);
   
-  Forward(5);
+  ForwardUnits(30);
   DelayCorrected(1000);
-  Forward(5);
+  ForwardUnits(30);
 }
 
 void loop() {
