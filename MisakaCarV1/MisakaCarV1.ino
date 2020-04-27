@@ -143,6 +143,14 @@ void Run()
   }
 }
 
+void Stop(){
+  digitalWrite(stepPin1, LOW);
+  digitalWrite(stepPin2, LOW);
+  digitalWrite(stepPin3, LOW);
+  digitalWrite(dirPin1, LOW);
+  digitalWrite(dirPin2, LOW);
+  digitalWrite(dirPin3, LOW);
+}
 
 void XBeeRX() {
   // Put in loop
@@ -217,10 +225,22 @@ void setup() {
   // start serial TX1 RX1
   Serial1.begin(9600);
   xbee.begin(Serial1);
-  
-  ForwardUnits(30);
-  DelayCorrected(1000);
-  ForwardUnits(30);
+
+  DelayCorrected(5000);
+  ForwardUnits(0);
+  DelayCorrected(3000);
+  ForwardUnits(15);
+  DelayCorrected(2500);
+  ForwardUnits(15);
+  DelayCorrected(2500);
+  ForwardUnits(0);
+  DelayCorrected(3000);
+  ForwardUnits(0); 
+  DelayCorrected(3000);
+  ForwardUnits(0);
+  DelayCorrected(3000);
+  ForwardUnits(11);
+  Stop();  
 }
 
 void loop() {
