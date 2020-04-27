@@ -39,11 +39,11 @@ void flashLed(int pin, int times, int wait) {
     
     for (int i = 0; i < times; i++) {
       digitalWrite(pin, HIGH);
-      delay(wait);
+      delay(wait/16);
       digitalWrite(pin, LOW);
       
       if (i + 1 < times) {
-        delay(wait);
+        delay(wait/16);
       }
     }
 }
