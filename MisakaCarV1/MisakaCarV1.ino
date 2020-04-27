@@ -60,22 +60,22 @@ float speedabs = 0;
 float stepsabs = 0;
 float MicrosecondsDelay = 0;
 
-float SetSpeed(int dirPin, int stepPin, float stepperspeed)
-{
-  if (stepperspeed >= 0)
-  {
-    // Set the spinning direction clockwise:
-    digitalWrite(dirPin, HIGH);
-    speedabs = stepperspeed;
-  }
-  else
-  {
-    // Set the spinning direction clockwise:
-    digitalWrite(dirPin, LOW);
-    speedabs = - stepperspeed;   
-  }
-  return speedabs;
-}
+//float SetSpeed(int dirPin, int stepPin, float stepperspeed)
+//{
+//  if (stepperspeed >= 0)
+//  {
+//    // Set the spinning direction clockwise:
+//    digitalWrite(dirPin, HIGH);
+//    speedabs = stepperspeed;
+//  }
+//  else
+//  {
+//    // Set the spinning direction clockwise:
+//    digitalWrite(dirPin, LOW);
+//    speedabs = - stepperspeed;   
+//  }
+//  return speedabs;
+//}
 
 float Speedabs(int dirPin, int stepPin, float stepperspeed)
 {
