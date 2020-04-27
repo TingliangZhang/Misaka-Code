@@ -231,6 +231,7 @@ void setup() {
 //  Serial1.begin(9600);
 //  xbee.begin(Serial1);
 
+//  // No.1
 //  DelayCorrected(5000);
 //  ForwardDelay(0);
 //  ForwardDelay(15);
@@ -239,6 +240,37 @@ void setup() {
 //  ForwardDelay(0);
 //  ForwardDelay(0);
 //  ForwardDelay(11);
+//
+//  // No.2
+//  DelayCorrected(5000);
+//  ForwardDelay(30);
+//  ForwardDelay(15);
+//  ForwardDelay(-8);
+//  ForwardDelay(-8);
+//  ForwardDelay(0);
+//  ForwardDelay(10);
+//  ForwardDelay(1);
+//
+//  // No.3
+//  DelayCorrected(5000);
+//  ForwardDelay(60);
+//  ForwardDelay(-30);
+//  ForwardDelay(-8);
+//  ForwardDelay(8);
+//  ForwardDelay(20);
+//  ForwardDelay(-3);
+//  ForwardDelay(-6);
+//
+//  // No.4
+//  // 注意把1号电机改为3号
+//  DelayCorrected(5000);
+//  ForwardDelay(0);
+//  ForwardDelay(0);
+//  ForwardDelay(0);
+//  ForwardDelay(0);
+//  ForwardDelay(-30);
+//  ForwardDelay(-15);
+//  ForwardDelay(-4);
   
 //  ForwardUnits(0);
 //  DelayCorrected(3000);
