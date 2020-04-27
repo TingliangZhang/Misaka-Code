@@ -215,7 +215,7 @@ void setup() {
   xbee.begin(Serial1);
   
   Forward(5);
-  delay(1);
+  DelayCorrected(1000);
   Forward(5);
 }
 
