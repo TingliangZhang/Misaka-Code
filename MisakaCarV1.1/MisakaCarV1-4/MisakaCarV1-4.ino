@@ -99,14 +99,14 @@ void Forward(int steps)
   if (steps >= 0)
   {
     // Set the spinning direction clockwise:
-    digitalWrite(dirPin1, HIGH);
+    digitalWrite(dirPin3, HIGH);
     digitalWrite(dirPin2, LOW);
     stepsabs = steps;
   }
   else
   {
     // Set the spinning direction clockwise:
-    digitalWrite(dirPin1, LOW);
+    digitalWrite(dirPin3, LOW);
     digitalWrite(dirPin2, HIGH);
     stepsabs = - steps;   
   }
@@ -114,11 +114,11 @@ void Forward(int steps)
   for (int i = 0; i < stepsabs * stepsPerRevolution; i++) 
   {
     // These four lines result in 1 step:
-    digitalWrite(stepPin1, HIGH);
+    digitalWrite(stepPin3, HIGH);
     digitalWrite(stepPin2, HIGH);
 //    digitalWrite(stepPin3, HIGH);
     delayMicroseconds(500/TimeScale);
-    digitalWrite(stepPin1, LOW);
+    digitalWrite(stepPin3, LOW);
     digitalWrite(stepPin2, LOW);
 //    digitalWrite(stepPin3, LOW);
     delayMicroseconds(500/TimeScale);
