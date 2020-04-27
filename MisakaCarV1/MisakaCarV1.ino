@@ -144,33 +144,8 @@ void Run()
 }
 
 
-void setup() {
-  pinMode(statusLed, OUTPUT);
-  pinMode(errorLed, OUTPUT);
-  pinMode(dataLed,  OUTPUT);
-  
-  // Declare pins as output:
-  pinMode(stepPin1, OUTPUT);
-  pinMode(dirPin1, OUTPUT);
-  pinMode(stepPin2, OUTPUT);
-  pinMode(dirPin2, OUTPUT);
-  pinMode(stepPin3, OUTPUT);
-  pinMode(dirPin3, OUTPUT);
-
-  // start serial
-  Serial1.begin(9600);
-  xbee.begin(Serial1);
-  
-//  Forward(5);
-}
-
-void loop() {
-//  SetSpeed(dirPin1, stepPin1, 100);
-//  SetSpeed(dirPin2, stepPin2, 100);
-//  SetSpeed(dirPin3, stepPin3, 100);
-//
-//  Run();
-
+void XBeeRX() {
+  // Put in loop
   // continuously reads packets, looking for ZB Receive or Modem Status
   xbee.readPacket();
   
@@ -216,4 +191,39 @@ void loop() {
     //nss.print("Error reading packet.  Error code: ");  
     //nss.println(xbee.getResponse().getErrorCode());
   }
+}
+
+void DelayCorrected(float s){
+  delay(s/16);
+}
+
+void setup() {
+  pinMode(statusLed, OUTPUT);
+  pinMode(errorLed, OUTPUT);
+  pinMode(dataLed,  OUTPUT);
+  
+  // Declare pins as output:
+  pinMode(stepPin1, OUTPUT);
+  pinMode(dirPin1, OUTPUT);
+  pinMode(stepPin2, OUTPUT);
+  pinMode(dirPin2, OUTPUT);
+  pinMode(stepPin3, OUTPUT);
+  pinMode(dirPin3, OUTPUT);
+
+  // start serial TX1 RX1
+  Serial1.begin(9600);
+  xbee.begin(Serial1);
+  
+  Forward(5);
+  delay(1);
+  Forward(5);
+}
+
+void loop() {
+//  SetSpeed(dirPin1, stepPin1, 100);
+//  SetSpeed(dirPin2, stepPin2, 100);
+//  SetSpeed(dirPin3, stepPin3, 100);
+//
+//  Run();
+
 }
