@@ -111,7 +111,7 @@ void Forward(int steps)
     stepsabs = - steps;   
   }
   //Spin the stepper motor steps revolutions fast:
-  for (int i = 0; i < steps * stepsPerRevolution; i++) 
+  for (int i = 0; i < stepsabs * stepsPerRevolution; i++) 
   {
     // These four lines result in 1 step:
     digitalWrite(stepPin1, HIGH);
@@ -211,7 +211,7 @@ void ForwardUnits(float u){
 
 void ForwardDelay(float u){
   ForwardUnits(u);
-  DelayCorrected(3000-u*33.33);
+  DelayCorrected(3000-abs(u)*33.33);
 }
 
 void setup() {
@@ -233,12 +233,12 @@ void setup() {
 
   DelayCorrected(5000);
   ForwardDelay(0);
-  ForwardDelay(15);
-  ForwardDelay(15);
   ForwardDelay(0);
   ForwardDelay(0);
   ForwardDelay(0);
-  ForwardDelay(11);
+  ForwardDelay(-30);
+  ForwardDelay(-15);
+  ForwardDelay(-4);
   
 //  ForwardUnits(0);
 //  DelayCorrected(3000);
